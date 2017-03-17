@@ -4,69 +4,69 @@
     <head>
         <title>AP Spanish Practice Test Score Calculator</title>
     </head>
-<body>
-    <form>
-        <label>Multiple Choice Listening</label><br>
-        <input type="number" name="mc_lis" id="mc_lis" placeholder="e.g. 34" required><br>
+    <body>
+        <form>
+            <label>Multiple Choice Listening</label><br>
+            <input type="number" name="mc_lis" id="mc_lis" placeholder="e.g. 34" min="0" max="34" required><br>
 
-        <label>Multiple Choice Reading</label><br>
-        <input type="number" name="mc_read" id="mc_read" placeholder="e.g. 36" required><br>
+            <label>Multiple Choice Reading</label><br>
+            <input type="number" name="mc_read" id="mc_read" placeholder="e.g. 36" min="0" max="36" required><br>
 
-        <label>Interpersonal Writing</label><br>
-        <input type="number" name="int_writ" id="int_writ" placeholder="e.g. 5" required><br>
+            <label>Interpersonal Writing</label><br>
+            <input type="number" name="int_writ" id="int_writ" placeholder="e.g. 5" min="0" max="5" required><br>
 
-        <label>Presentational Writing</label><br>
-        <input type="number" name="pres_writ" id="pres_writ" placeholder="e.g. 5" required><br>
+            <label>Presentational Writing</label><br>
+            <input type="number" name="pres_writ" id="pres_writ" placeholder="e.g. 5" min="0" max="5" required><br>
 
-        <label>Interpersonal Speaking</label><br>
-        <input type="number" name="int_spk" id="int_spk" placeholder="e.g. 5" required><br>
+            <label>Interpersonal Speaking</label><br>
+            <input type="number" name="int_spk" id="int_spk" placeholder="e.g. 5" min="0" max="5" required><br>
 
-        <label>Presentational Speaking</label><br>
-        <input type="number" name="pres_spk" id="pres_spk" placeholder="e.g. 5" required>
+            <label>Presentational Speaking</label><br>
+            <input type="number" name="pres_spk" id="pres_spk" placeholder="e.g. 5" min="0" max="5" required>
 
-        <p></p>
+            <p></p>
 
-        <button type="button" onclick="calc_scores()"> Caclulate Score </button>
+            <button type="button" onclick="calc_scores()"> Caclulate Score </button>
 
-        <p></p>
+            <p></p>
 
-        <strong>Your score is: <output id="norm_score"></output></strong>
-    </form>
-<script>
-function calc_scores()
-{
-    var composite = Math.round(document.getElementById('mc_lis').value*0.8823 +
-                    document.getElementById('mc_read').value*1.24 +
-                    document.getElementById('int_writ').value*3 +
-                    document.getElementById('pres_writ').value*6 +
-                    document.getElementById('int_spk').value*3 +
-                    document.getElementById('pres_spk').value*3);
-    if (0 <= composite && composite < 60)
-    {
-        composite = 1;
-    }
-    else if (composite < 77)
-    {
-        composite = 2;
-    }
-    else if (composite < 92)
-    {
-        composite = 3;
-    }
-    else if (composite < 112)
-    {
-        composite = 4;
-    }
-    else if (composite < 151)
-    {
-        composite = 5;
-    }
-    else
-    {
-        composite = "Invalid input, recheck your scores!";
-    }
-    document.getElementById("norm_score").value = composite;
-}
-</script>
-</body>
+            <strong>Your score is: <output id="norm_score"></output></strong>
+        </form>
+        <script>
+        function calc_scores()
+        {
+            var composite = Math.round(document.getElementById('mc_lis').value*0.8823 +
+                            document.getElementById('mc_read').value*1.24 +
+                            document.getElementById('int_writ').value*3 +
+                            document.getElementById('pres_writ').value*6 +
+                            document.getElementById('int_spk').value*3 +
+                            document.getElementById('pres_spk').value*3);
+            if (0 <= composite && composite < 60)
+            {
+            composite = 1;
+            }
+            else if (composite < 77)
+            {
+                composite = 2;
+            }
+            else if (composite < 92)
+            {
+                composite = 3;
+            }
+            else if (composite < 112)
+            {
+                composite = 4;
+            }
+            else if (composite < 151)
+            {
+                composite = 5;
+            }
+            else
+            {
+                composite = "Invalid input, recheck your scores!";
+            }
+            document.getElementById("norm_score").value = composite;
+        }
+        </script>
+    </body>
 </html>
