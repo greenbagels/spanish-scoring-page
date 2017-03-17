@@ -35,12 +35,12 @@
         <script>
         function calc_scores()
         {
-            var composite = Math.round(document.getElementById('mc_lis').value*0.8823 +
-                            document.getElementById('mc_read').value*1.24 +
-                            document.getElementById('int_writ').value*3 +
-                            document.getElementById('pres_writ').value*6 +
-                            document.getElementById('int_spk').value*3 +
-                            document.getElementById('pres_spk').value*3);
+            var composite = Math.round(document.getElementById('mc_lis').value * 0.8823 +
+                            document.getElementById('mc_read').value * 1.24 +
+                            document.getElementById('int_writ').value * 3 +
+                            document.getElementById('pres_writ').value * 6 +
+                            document.getElementById('int_spk').value * 3 +
+                            document.getElementById('pres_spk').value * 3);
             if (0 <= composite && composite < 60)
             {
             composite = 1;
