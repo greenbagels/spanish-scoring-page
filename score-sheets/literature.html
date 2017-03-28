@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+    <head>
+        <title>AP Spanish Literature Practice Test Score Calculator</title>
+    </head>
+    <body>
+        <form>
+            <label>Interpretive Listening</label><br>
+            <input type="number" name="int_lis" id="int_lis" placeholder="e.g. 15" min="0" max="15" required><br>
+
+            <label>Reading Analysis</label><br>
+            <input type="number" name="rd_anlys" id="rd_anlys" placeholder="e.g. 50" min="0" max="50" required><br>
+
+            <label>Q1 Content</label><br>
+            <input type="number" name="q1_cont" id="q1_cont" placeholder="e.g. 3" min="0" max="3" required><br>
+
+            <label>Q1 Language</label><br>
+            <input type="number" name="q1_lang" id="q1_lang" placeholder="e.g. 3" min="0" max="3" required><br>
+
+            <label>Q2 Content</label><br>
+            <input type="number" name="q2_cont" id="q2_cont" placeholder="e.g. 3" min="0" max="3" required><br>
+
+            <label>Q2 Language</label><br>
+            <input type="number" name="q2_lang" id="q2_lang" placeholder="e.g. 3" min="0" max="3" required><br>
+            
+            <label>Q3 Content</label><br>
+            <input type="number" name="q3_cont" id="q3_cont" placeholder="e.g. 5" min="0" max="5" required><br>
+
+            <label>Q3 Language</label><br>
+            <input type="number" name="q3_lang" id="q3_lang" placeholder="e.g. 5" min="0" max="5" required><br>
+
+            <label>Q4 Content</label><br>
+            <input type="number" name="q4_cont" id="q4_cont" placeholder="e.g. 5" min="0" max="5" required><br>
+
+            <label>Q4 Language</label><br>
+            <input type="number" name="q4_lang" id="q4_lang" placeholder="e.g. 5" min="0" max="5" required>
+
+            <p></p>
+
+            <button type="button" onclick="calc_scores()"> Caclulate Score </button>
+
+            <p></p>
+
+            <strong>Your score is: <output id="norm_score"></output></strong>
+        </form>
+        <script>
+        function calc_scores()
+        {
+            var composite = Math.round(document.getElementById('int_lis').value * 1.1538 +
+                            document.getElementById('rd_anlys').value * 1.1538 +
+                            document.getElementById('q1_cont').value * 2.625 +
+                            document.getElementById('q1_lang').value * 1.125 +
+                            document.getElementById('q2_cont').value * 2.625 +
+                            document.getElementById('q2_lang').value * 1.125 +
+                            document.getElementById('q3_cont').value * 3.675 +
+                            document.getElementById('q3_lang').value * 1.575 +
+                            document.getElementById('q4_cont').value * 3.675 +
+                            document.getElementById('q4_lang').value * 1.575);
+            if (0 <= composite && composite < 63)
+            {
+            composite = 1;
+            }
+            else if (composite < 74)
+            {
+                composite = 2;
+            }
+            else if (composite < 92)
+            {
+                composite = 3;
+            }
+            else if (composite < 107)
+            {
+                composite = 4;
+            }
+            else if (composite < 151)
+            {
+                composite = 5;
+            }
+            else
+            {
+                composite = "Invalid input, recheck your scores!";
+            }
+            document.getElementById("norm_score").value = composite;
+        }
+        </script>
+    </body>
+</html>
